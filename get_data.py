@@ -1,7 +1,8 @@
 '''
 Get data from a factory in Kazachstan.
 
-
+Entry task: https://github.com/kiwicom/mlweekend
+Address example: http://165.227.157.145:8080/api/do_measurement?x=2
 '''
 
 import requests
