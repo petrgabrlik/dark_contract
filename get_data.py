@@ -27,12 +27,15 @@ def main():
     limit_l = -0.5
     limit_h = 0.5
     step = 0.1
+    repetition = 10
     steps = (limit_h - limit_l) / step
     c = 0
 
+    print('Interval {},{}, step {}, repetition {}'.format(limit_l, limit_h, step, repetition))
+
     for x in np.arange(limit_l, limit_h, step):
         y = list()
-        for rep in range(10):
+        for rep in range(repetition):
             r = requests.get('http://'+IP+':'+PORT+DIR, params = {'x': x}).text
             # print(r)
             y.append(json.loads(r)['data']['y'])
