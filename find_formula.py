@@ -30,10 +30,18 @@ def main(filename):
     print(poly)
     print(p)
 
-    # y=x^4 function for comparision
+    # Function y=x^4 for comparision
     p_x4 = np.poly1d([1, 0, 0, 0, 0])
 
-    plt.plot(data_filt[:,0], data_filt[:,1],'+r', np.arange(-10,10.1,0.1), p(np.arange(-10,10.1,0.1)),'--b', np.arange(-10,10.1,0.1), p_x4(np.arange(-10,10.1,0.1)), '--g')#, data_filt[:,0], data[:,1:], '+g')
+    # Generate dense x array for plotting purposes
+    x_dense = np.arange(np.ndarray.min(data[:,0]),
+        np.ndarray.max(data[:,0]) + (np.ndarray.max(data[:,0]) - np.ndarray.min(data[:,0])) / 100,
+        (np.ndarray.max(data[:,0]) - np.ndarray.min(data[:,0])) / 100)
+
+    # Plot data
+    plt.plot(data_filt[:,0], data_filt[:,1],'+r',
+        x_dense, p(x_dense),'--b',
+        x_dense, p_x4(x_dense), '--g')
     plt.xlabel(r'$\bf{x}$')
     plt.ylabel(r'$\bf{y}$')
     # plt.title(p)
