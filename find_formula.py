@@ -26,7 +26,9 @@ def main(filename):
 
     # print(data_filt)
 
-    poly = np.polyfit(data_filt[:,0], data_filt[:,1], 4)
+    # poly = np.polyfit(data_filt[:,0], data_filt[:,1], 4)
+    [poly, residuals, rank, singular_values, rcond] = np.polyfit(data_filt[:,0], data_filt[:,1], 4, full=True)
+    print(residuals)
     p = np.poly1d(poly)
 
     print(poly)
