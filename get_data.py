@@ -53,10 +53,10 @@ if __name__ == '__main__':
     # Instantiate the parser
     parser = argparse.ArgumentParser(description='App downloads data from the factory in Kazachstan.')
     # Required positional argument
-    parser.add_argument('limit_l', type=float, help='Lower limit, a required float positional argument')
-    parser.add_argument('limit_h', type=float, help='Upper limit, a required float positional argument')
-    parser.add_argument('step', type=float, help='Iteration step, a required float positional argument')
-    parser.add_argument('rep', type=int, help='The number of repetions, a required integer positional argument')
+    parser.add_argument('limit_l', type=float, help='Lower limit, a required float argument')
+    parser.add_argument('limit_h', type=float, help='Upper limit, a required float argument')
+    parser.add_argument('step', type=float, help='Iteration step, a required float argument')
+    parser.add_argument('rep', type=int, help='The number of repetions, a required integer argument')
     # Parse
     args = parser.parse_args()
 
