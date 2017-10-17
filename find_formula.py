@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 '''
 Process data and find unknown formula.
 
@@ -9,6 +10,9 @@ import argparse
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+# Not my idea, solution by Gareth
+# https://codegolf.stackexchange.com/questions/4707/outputting-ordinal-numbers-1st-2nd-3rd#answer-4712
 ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(n/10%10!=1)*(n%10<4)*n%10::4])
 
 
@@ -54,22 +58,17 @@ def main(filename):
     # data = np.loadtxt(filename)
     data = np.genfromtxt(filename)
 
-    print(data,'\n')
-
     # Count missing data
     missc = count_missing(data)
     if missc:
         print('Warning: {} ({:.1f}%) values missing'.format(missc, missc / data[:,1:].size * 100))
-        print()
 
     # Interpolate missing data
     if missc:
         interpolate_missing(data)
-        print(data,'\n')
 
     # # Filter data
     data_filt = filter_data(data)
-    print(data_filt,'\n')
 
     # Plot input data
     plt.figure(1)
@@ -80,7 +79,7 @@ def main(filename):
     # plt.show()
     plt.savefig('data_input.png', bbox_inches='tight')
 
-    # Compare data with function y=x^4
+    # Compare the data with function y=x^4
     p_x4 = np.poly1d([1, 0, 0, 0, 0])
     # Generate dense x array for plotting purposes
     x_dense = np.arange(np.ndarray.min(data[:,0]),
@@ -100,11 +99,10 @@ def main(filename):
     o = 4 # Polynomial order
     poly = np.polyfit(data_filt[:,0], data_filt[:,1], o)
     p = np.poly1d(poly)
-    print(p)
+    print('{} order polynomial function found by least squares fit:\n'.format(ordinal(o)), p)
     plt.figure(3)
     plt.plot(data_filt[:,0], data_filt[:,1], '+b',
         x_dense, p(x_dense), ':r', markersize=10)
-        # x_dense, p_x4(x_dense), '--g')
     plt.xlabel('x', fontweight='bold')
     plt.ylabel('y', fontweight='bold')
     plt.title('{} order polynomial approximation'.format(ordinal(o)), fontweight='bold')
