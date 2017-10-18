@@ -34,6 +34,18 @@ There are 4 testing datasets obtained by the script in this repository:
 
 The function for x close to zero (<-1.0,1.0>) is quite weird, but for higher x values, it looks like a power function.
 According to the y values (e.g. `10000~f(10)`), it could be `y=x^4`. For better approximation, 4th order polynomial
-function could works fine.
+function could work fine.
 
 ![input data](https://raw.githubusercontent.com/petrgabrlik/dark_contract/master/data_input_all.png)
+
+## Approximations
+
+find_formula.py app is for finding and testing approximations. At first, it checks data and interpolates missing values.
+If there are more measurements for one x, the y values are averaged, which produces a basic filtration. These input
+data are approximated using `y=x^4` power function and 4th order polynomial function (least squares fit) - the
+assumption of the data scientist :) The app works as follows:
+
+`python find_formula.py data0.txt`
+
+This processes the given dataset and produces plots comparing above mentioned approximation functions. Here is the
+graphical summary of all the datasets:
