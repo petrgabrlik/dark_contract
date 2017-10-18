@@ -2,7 +2,7 @@
 The task is to find unknown mathematical formula y=f(x), which is hidden in a black-box machine. You can measure data
 by the following request:
 
-`/api/do_measurement?x=4`
+`<IP>/api/do_measurement?x=4`
 
 You get a response in JSON like this:
 
@@ -22,7 +22,7 @@ repetitions, e.g.
 `python get_data.py -1 1.1 0.1 5`
 
 performs measurements on the interval <-1.0,1.0>, with step 0.1, and with 5 repetitions for every x value. The data are
-saved into txt file, where the first column contains x data and the other ones y data. Type `-h` for help.
+saved into txt file, where the first column contains x data and the other ones y data.
 
 There are 4 testing datasets obtained by the script in this repository:
 - data0.txt - interval <-1.0,1.0>, step 0.1, rep 5
