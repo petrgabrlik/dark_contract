@@ -49,3 +49,15 @@ assumption of the data scientist :) The app works as follows:
 
 This processes the given dataset and produces plots comparing above mentioned approximation functions. Here is the
 graphical summary of all the datasets:
+
+![input data](https://raw.githubusercontent.com/petrgabrlik/dark_contract/master/data_approx_all.png)
+
+## Conclusion
+
+There is no only clear solution. For small intervals close to zero, polynomial approximation works well; on the other
+hand, the power function can't be used in this case. For example, this is a suitable approximation for dataset
+data1.txt:
+
+`y = 1.002 x^4 + 0.007143 x^3 - 5.037 x^2 + 4.8 x - 5.608`
+
+For larger intervals (x>10), the power function fits well. Globally, the `y=x^4` is a good solution.
