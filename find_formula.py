@@ -66,6 +66,7 @@ def main(filename):
     # Interpolate missing data
     if missc:
         interpolate_missing(data)
+        print('Missing data interpolated')
 
     # # Filter data
     data_filt = filter_data(data)
