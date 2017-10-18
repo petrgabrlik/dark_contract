@@ -1,5 +1,5 @@
 # Task
-The task is to find unknown mathematical formula y=f(x), which is hidden in a black-box machine. You can measure data
+The task is to find unknown mathematical formula `y=f(x)`, which is hidden in a black-box machine. You can measure data
 by the following request:
 
 `<IP>/api/do_measurement?x=4`
@@ -32,8 +32,8 @@ There are 4 testing datasets obtained by the script in this repository:
 
 ## First look
 
-The function for x close to zero (<-1.0,1.0>) is quite weird, but for higher x values, it looks like a power function.
-According to the y values (e.g. `10000~f(10)`), it could be `y=x^4`. For better approximation, 4th order polynomial
+The function for *x* close to zero (<-1.0,1.0>) is quite weird, but for higher *x* values, it looks like a power function.
+According to the *y* values (e.g. `10000~f(10)`), it could be `y=x^4`. For better approximation, 4th order polynomial
 function could work fine.
 
 ![input data](https://raw.githubusercontent.com/petrgabrlik/dark_contract/master/data_input_all.png)
@@ -41,7 +41,7 @@ function could work fine.
 ## Approximations
 
 find_formula.py app is for finding and testing approximations. At first, it checks data and interpolates missing values.
-If there are more measurements for one x, the y values are averaged, which produces a basic filtration. These input
+If there are more measurements for one *x*, the y values are averaged, which produces a basic filtration. These input
 data are approximated using `y=x^4` power function and 4th order polynomial function (least squares fit) - the
 assumption of the data scientist :) The app works as follows:
 
@@ -60,4 +60,4 @@ data1.txt:
 
 `y = 1.002 x^4 + 0.007143 x^3 - 5.037 x^2 + 4.8 x - 5.608`
 
-For larger intervals (x>10), the power function fits well. Globally, the `y=x^4` is a good solution.
+For larger intervals (*x*>10), the power function fits well. Globally, the `y=x^4` is a good solution.
